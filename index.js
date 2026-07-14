@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===== PRELOADER ===== */
   const preloader = document.getElementById("preloader");
   window.addEventListener("load", () => {
     setTimeout(() => {
@@ -9,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => preloader.classList.add("done"), 1800);
     }, 300);
   });
-
-  // Fallback in case 'load' already fired
   if (document.readyState === "complete") {
     setTimeout(() => {
       preloader.classList.add("hide");
@@ -18,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => preloader.classList.add("done"), 1800);
     }, 300);
   }
-
-  /* ===== TYPING ROLE TEXT ===== */
   const roles = [
     "UI/UX Designer",
     "Creative Developer",
@@ -51,14 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setTimeout(typeLoop, 2200);
 
-  /* ===== NAVBAR SCROLL STATE ===== */
   const nav = document.getElementById("mainNav");
   window.addEventListener("scroll", () => {
     nav.classList.toggle("scrolled", window.scrollY > 40);
     document.getElementById("backToTop").classList.toggle("show", window.scrollY > 500);
   });
 
-  // collapse mobile menu on link click
   document.querySelectorAll("#navMenu .nav-link").forEach(link => {
     link.addEventListener("click", () => {
       const menu = document.getElementById("navMenu");
@@ -68,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ===== SCROLL REVEAL FOR SECTIONS ===== */
   const revealTargets = document.querySelectorAll(
     ".section-label, .section-heading, .about-heading, .skill-card, .project-card, .blog-card, .contact-list, .contact-form, .about-avatar-frame"
   );
@@ -85,12 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealTargets.forEach(el => observer.observe(el));
 
-  /* ===== BACK TO TOP ===== */
   document.getElementById("backToTop").addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-
-  /* ===== CONTACT FORM (front-end only demo) ===== */
+  
   const form = document.getElementById("contactForm");
   const success = document.getElementById("formSuccess");
   form.addEventListener("submit", (e) => {
